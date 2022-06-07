@@ -1,27 +1,24 @@
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
-import 'package:quizz_app/screens/main_menu.dart';
-import 'resgister.dart';
+import 'login.dart';
 
-class LoginPage extends StatefulWidget {
-  // const LoginPage({Key? key}) : super(key: key);
-  const LoginPage({Key? key}) : super(key: key);
+class RegisterPage extends StatefulWidget {
+  const RegisterPage({Key? key, required this.title}) : super(key: key);
+  final String title;
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<RegisterPage> createState() => _RegisterPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _RegisterPageState extends State<RegisterPage> {
   final _formKey = GlobalKey<FormState>();
   final emailEditingController = TextEditingController();
   final pwdEditingController = TextEditingController();
-
   var rememberValue = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       body: Container(
         padding: const EdgeInsets.all(20),
         child: Column(
@@ -29,7 +26,7 @@ class _LoginPageState extends State<LoginPage> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             const Text(
-              'Login',
+              'Sign up',
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 40,
@@ -42,6 +39,46 @@ class _LoginPageState extends State<LoginPage> {
               key: _formKey,
               child: Column(
                 children: [
+                  Row(
+                    children: [
+                      Expanded(
+                        child: TextFormField(
+                          validator: (value) => EmailValidator.validate(value!)
+                              ? null
+                              : "Please enter a valid name",
+                          maxLines: 1,
+                          decoration: InputDecoration(
+                            hintText: 'First name',
+                            prefixIcon: const Icon(Icons.person),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 20,
+                      ),
+                      Expanded(
+                        child: TextFormField(
+                          validator: (value) => EmailValidator.validate(value!)
+                              ? null
+                              : "Please enter a valid name",
+                          maxLines: 1,
+                          decoration: InputDecoration(
+                            hintText: 'Last name',
+                            prefixIcon: const Icon(Icons.person),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
                   TextFormField(
                     controller: emailEditingController,
                     validator: (value) => EmailValidator.validate(value!)
@@ -50,7 +87,7 @@ class _LoginPageState extends State<LoginPage> {
                     maxLines: 1,
                     decoration: InputDecoration(
                       hintText: 'Enter your email',
-                      prefixIcon  : const Icon(Icons.email),
+                      prefixIcon: const Icon(Icons.email),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
@@ -77,30 +114,20 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ),
                   ),
-                 
                   const SizedBox(
                     height: 20,
                   ),
                   ElevatedButton(
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
-                          print("EMAIL:");
-                          print(emailEditingController.text);
-                          print(pwdEditingController.text);
-                           Navigator.pushReplacement(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) =>
-                                const MainMenu(),
-                            ),
-                          );
+                        
                       }
                     },
                     style: ElevatedButton.styleFrom(
                       padding: const EdgeInsets.fromLTRB(40, 15, 40, 15),
                     ),
                     child: const Text(
-                      'Login',
+                      'Sign up',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                       ),
@@ -109,21 +136,21 @@ class _LoginPageState extends State<LoginPage> {
                   const SizedBox(
                     height: 20,
                   ),
-                   Row(
+                  Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const Text('Not registered yet?'),
+                      const Text('Already registered?'),
                       TextButton(
                         onPressed: () {
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
                               builder: (context) =>
-                                  const RegisterPage(title: 'Register UI'),
+                                  const LoginPage(),
                             ),
                           );
                         },
-                        child: const Text('Create an account'),
+                        child: const Text('Sign in'),
                       ),
                     ],
                   ),

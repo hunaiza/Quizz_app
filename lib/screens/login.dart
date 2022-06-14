@@ -1,5 +1,8 @@
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 import 'package:quizz_app/screens/main_menu.dart';
 import 'resgister.dart';
 
@@ -82,18 +85,44 @@ class _LoginPageState extends State<LoginPage> {
                     height: 20,
                   ),
                   ElevatedButton(
-                    onPressed: () {
+                    onPressed: () async {
                       if (_formKey.currentState!.validate()) {
                           print("EMAIL:");
                           print(emailEditingController.text);
                           print(pwdEditingController.text);
-                           Navigator.pushReplacement(
+                          
+                        final response = await http.post(
+                          Uri.parse('http://10.0.2.2:5000/login'),
+                          headers: <String, String>{
+                            'Content-Type': 'application/json; charset=UTF-8',
+                          },
+                          body: jsonEncode(<String, String>{
+                            'email': emailEditingController.text,
+                            'password': pwdEditingController.text
+                          }),
+                        );
+                        if (response.statusCode == 200) {
+                          // If the server did return a 201 CREATED response,
+                          // then parse the JSON.
+                          Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                              builder: (context) =>
-                                const MainMenu(),
+                              builder: (context) => const MainMenu(),
                             ),
                           );
+                        } else if (response.statusCode == 401) {
+                          Fluttertoast.showToast(
+                              msg: jsonDecode(response.body)['message'],
+                              toastLength: Toast.LENGTH_LONG,
+                              timeInSecForIosWeb: 1,
+                              textColor: Colors.white,
+                              fontSize: 16.0);
+                        } else {
+                          // If the server did not return a 201 CREATED response,
+                          // then throw an exception.
+                          throw Exception('Failed to login.');
+                        }
+                      
                       }
                     },
                     style: ElevatedButton.styleFrom(

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:quizz_app/data/questions_example.dart';
 import 'package:quizz_app/screens/login.dart';
 import 'package:quizz_app/screens/main_menu.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() {
+void main() async {
   runApp(const MyApp());
 }
 

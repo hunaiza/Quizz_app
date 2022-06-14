@@ -1,0 +1,65 @@
+    [
+    {"Question" :
+        "Q1. Who created Flutter?",
+        "Choice":{
+        "Facebook": false,
+        "Adobe": false,
+        "Google": true,
+        "Microsoft": false
+        }
+    },
+    {"Question" :"Q2. What is Flutter?", "Choice":{
+        "Open source DBMS": false,
+        "Open Source Backend toolkit": false,
+        "Web Development Kit": false,
+        "Open Source UI toolkit": true
+    }},
+    {"Question" :"Q3. The first alpha version of Flutter was released in?", "Choice":{
+        "May 2016": false,
+        "May 2017": true,
+        "May 2018": false,
+        "May 2019": false
+    }},
+    {"Question" :"Q4. SDK Stands for?", "Choice":{
+        "Software Developement Kit": true,
+        "Software Data kit": false,
+        "Software Database kit": false,
+        "Software Development Knowledge": false
+    }},
+    {"Question" :"Q5. What are best editors for flutter?", "Choice":{
+        "All of the below": true,
+        "Android Studio": false,
+        "IntelliJ Idea": false,
+        "VS Code": false
+    }},
+    {"Question" :"Q6. Is Flutter for Web and Desktop available in stable version?", "Choice":{
+        "Yes": false,
+        "No": true
+    }},
+    {"Question" :
+        "Q7. Whenever we build the flutter app first time, it'll take longer time?", "Choice":{
+        "True": true,
+        "False": false
+    }},
+    {"Question" :"Q8. What are the different build modes in flutter?", "Choice":{
+        "Debug": false,
+        "Release": false,
+        "Profile": false,
+        "All of the above": true
+    }},
+    {"Question" :
+        "Q9. How many types of widgets are there in flutter?",
+        "Choice":{
+            "2": true,
+            "3": false,
+            "4": false,
+            "5": false
+        }},
+    {"Question" :
+        "Q10. The subclasses of key must be a _____?","Choice": {
+        "Global Key": false,
+        "Local Key": false,
+        "Global or Local Key": true,
+        "None": false
+    }}
+    ]

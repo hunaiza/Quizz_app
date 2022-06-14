@@ -4,13 +4,18 @@ import 'package:quizz_app/screens/result_screen.dart';
 import 'package:quizz_app/widgets/quizz_widget.dart';
 
 class QuizzScreen extends StatefulWidget {
-  const QuizzScreen({Key? key}) : super(key: key);
+   dynamic questions = [];
+   QuizzScreen({Key? key}) : super(key: key) ;
+  //  {
+  //    questions = Question().getQuestions();
+  // }
 
   @override
   _QuizzScreenState createState() => _QuizzScreenState();
 }
 
 class _QuizzScreenState extends State<QuizzScreen> {
+  
   int question_pos = 0;
   int score = 0;
   bool btnPressed = false;

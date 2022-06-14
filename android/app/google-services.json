@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "750911541109",
+    "project_id": "madflutterquizapp",
+    "storage_bucket": "madflutterquizapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:750911541109:android:f8ca70bc514cde7b8a8d3c",
+        "android_client_info": {
+          "package_name": "com.example.quizz_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "750911541109-s7o3vev83jgcrbfq8qna15mqopfr9g1f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCG5fHou_S1mm23o5uNe95W3j2BtCtEkSE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "750911541109-s7o3vev83jgcrbfq8qna15mqopfr9g1f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

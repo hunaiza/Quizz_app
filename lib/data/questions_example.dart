@@ -1,8 +1,31 @@
+// import 'package:http/http.dart' as http;
+// import 'dart:convert';
+
+
 class QuestionModel {
   String? question;
-  Map<String, bool>? answers;
+  dynamic answers;
   QuestionModel(this.question, this.answers);
 }
+
+// class Question {
+//    getQuestions() async {
+//      final response = await http.get(
+//                           Uri.parse('http://10.0.2.2:5000/getQuestions'),
+//                         );
+//       print("inside");
+//      if (response.statusCode == 200) {
+//       List<QuestionModel> questions=[];
+//       List data = jsonDecode(response.body)['data'];
+//       data.forEach((d) => questions.add(QuestionModel(d["Question"], d["Choice"])));
+//       print("Question");
+//       print(questions);
+//       return questions;
+//      }
+//   }
+// }
+
+
 
 List<QuestionModel> questions = [
   QuestionModel(
